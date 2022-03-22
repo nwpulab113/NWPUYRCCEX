@@ -31,7 +31,7 @@ There are several annotation tools for semantic segmentation, such as Labelme, I
 #### Extend
 Due to the large amount of data required for neural network training, we expanded the NWPU_YRCC data set, added 74 images on the original dateset, and renamed it as NWPU_YRCC_EX. There are 887 images in the NWPU_YRCC_EX dataset. At the same time, we re divided the dataset according to the ice shape, texture and other information, including 524 as training sets, 180 as val sets and 183 as test sets. We will continue to expand this data set in the future.
 ## Data Orgnization
--Dataset
+     -Dataset
       -train
       -trainannot
       -val
