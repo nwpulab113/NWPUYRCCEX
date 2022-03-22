@@ -26,3 +26,15 @@ The appearance of river ice varies a lot at different times; in order to cover d
 ### Dataset Construction
 #### Collection
 The aerial images were captured at the Ningxia–Inner Mongolia reach of the Yellow RiverduringNovember–Marchofeachyearfrom2015to2019. Inordertoobtainanintuitiveview and understanding of environments around image acquisition areas, we exhibit a map in Figure 1, in which the red ellipse reveals our study and imaging area. During the data collection, we used two different UAVs, a fixed wing UAV ASN216 with a Canon 5DS visible light camera and a DJI Inspire 1. The flight height of UAVs ranged from 30 to 500 m. There are 200 videos in total, ranging in length from 10 min to 50 min.
+#### Manual Annotation
+There are several annotation tools for semantic segmentation, such as Labelme, Image Labeler and so on. However, due to the irregularity of river ice, it is hard to mark a clear boundary between water and ice on the NWPU_YRCC dataset with these tools. Eventually, Photoshop software was adopted to label each pixel in the image as one of three categories, including ice, water and shore. However, there continued to be some problems. Other than three demanding kinds of pixel values, there were still other values in the annotation map. So the unexpected values were classified into three expected kinds using the least Euclidean distance metric. Some very small misclassified regions with only several pixels still existed. To ensure the integrity, an open morphology operation was carried out to correct them. This annotation job is very time-consuming. Finally, 814 typical images were carefully selected to be accurately annotated, and make up the NWPU_YRCC dataset. Note that the resolution of all annotated images is 1600 × 640. However, the resolutions of the collected images are diverse. The maximum image resolution and video resolution of Canon 5DS on ASN216 are, respectively, 8688 × 5792 and 1920 × 1080, while the max image resolution and video resolution of camera on DJI Inspire 1 are 4000 × 3000 and 4096 × 2160. To ensure that the resolution of the input images in the deep convolution neural network was consistent, we finally cropped and resized the images to 1600 × 640. 
+#### Extend
+Due to the large amount of data required for neural network training, we expanded the NWPU_YRCC data set, added 74 images on the original dateset, and renamed it as NWPU_YRCC_EX. There are 887 images in the NWPU_YRCC_EX dataset. At the same time, we re divided the dataset according to the ice shape, texture and other information, including 524 as training sets, 180 as val sets and 183 as test sets. We will continue to expand this data set in the future.
+## Data Orgnization
+-Dataset
+      -train
+      -trainannot
+      -val
+      -valannot
+      -test
+      -testannot
